@@ -1,2 +1,4 @@
 set_env.sh
 env-configmap.yml
+aws-credentials
+aws-secret.yml
