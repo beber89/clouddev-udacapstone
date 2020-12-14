@@ -10,6 +10,7 @@ describe('Feed API', () => {
   it('should return 5 objects ', () => {
     return chai.request(app).get('/api/v0/feed/')
       .then(res => {
+        console.log(res.body);
         expect(res.body.count).to.eql(5);
       })
   });

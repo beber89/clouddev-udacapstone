@@ -10,7 +10,7 @@
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json",
-    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+    "test": "mocha --timeout 6000 -r ts-node/register src/**/*.spec.ts"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
