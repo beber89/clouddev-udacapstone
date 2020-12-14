@@ -16,7 +16,7 @@ describe('Feed API', () => {
   it('should return object with caption "here" ', () => {
     return chai.request(app).get('/api/v0/feed/2')
       .then(res => {
-        expect(res.body.caption).to.eql("her");
+        expect(res.body.caption).to.eql("here");
       })
   });
 });

@@ -4,3 +4,4 @@ aws-credentials
 aws-secret.yml
 credentials
 README.md
+yo-recognition-api/*
