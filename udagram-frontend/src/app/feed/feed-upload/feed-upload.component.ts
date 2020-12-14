@@ -58,6 +58,7 @@ export class FeedUploadComponent implements OnInit {
       .then((result) => {
         this.modalController.dismiss();
         this.loadingController.dismiss();
+        alert(result.quote);
       });
   }
 

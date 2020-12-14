@@ -4,8 +4,6 @@ FROM node:13
 # Create app directory
 WORKDIR /usr/src/app
 
-COPY ./aws-credentials /root/.aws/credentials
-
 # Install app dependencies by copying
 # package.json and package-lock.json
 COPY package*.json ./

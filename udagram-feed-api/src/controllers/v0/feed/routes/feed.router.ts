@@ -5,6 +5,8 @@ import * as jwt from 'jsonwebtoken';
 import * as AWS from '../../../../aws';
 import * as c from '../../../../config/config';
 
+const https = require('https');
+
 const router: Router = Router();
 
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
@@ -56,7 +58,7 @@ router.get('/signed-url/:fileName',
 
 // Create feed with metadata
 router.post('/',
-    requireAuth,
+    // requireAuth,
     async (req: Request, res: Response) => {
       const caption = req.body.caption;
       const fileName = req.body.url; // same as S3 key name
@@ -77,7 +79,25 @@ router.post('/',
       const savedItem = await item.save();
 
       savedItem.url = AWS.getGetSignedUrl(savedItem.url);
-      res.status(201).send(savedItem);
+      // res.status(201).send(savedItem)
+
+      // added feature
+      https.get(c.config.quoter_url+"/", (resp: Response) => {
+        let data = '';
+      
+        // A chunk of data has been recieved.
+        resp.on('data', (chunk) => {
+          data += chunk;
+        });
+      
+        // The whole response has been received. Print out the result.
+        resp.on('end', () => {
+          res.status(201).send({feedItem: savedItem, quote: data})
+        });
+      
+      }).on("error", (err: Error) => {
+        res.status(201).send({feedItem: savedItem, quote: "None"})
+      });
     });
 
 export const FeedRouter: Router = router;
