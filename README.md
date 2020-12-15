@@ -1,32 +1,39 @@
-# About Application
+## About Application
 - Chaosgram, allows users to share photos and allows developers to mess up users' captions.
 - [[ Screenshot for the captions ]]
 - It also presents a quote for the user whenever s/he uploads a new post.
 -  [[ screenshot for the quote ]]
 
-# Composition
+## Composition
 Course 3 app implmented using microservices arch and one part uses lambda functions
 - The project comprises four microservices
 - 
 
-# Added Feature
-## Chaotic Caption Changes
+## Added Feature
+### Chaotic Caption Changes
 - Container `backend-chaos` changes a random post's caption each 30 seconds.
-## Random Quote Alert
+### Random Quote Alert
 - A lambda function is implemented with the role to send a quote to user whenever a post is uploaded
-### It takes quote request from feed backend
+#### It takes quote request from feed backend
 - show edits in `udagram-feed-api`
-### Edits in frontend
+#### Edits in frontend
 - Backend sends the quote to frontend which presents it as an alert to user 
  - after the user successfully creates a post
 
 
-# Credentials
+## Rubric
+### Containers and Microservices
+- Applications separated each on its container: frontend, backend-feed, backend-user, backend-chaos.
+- Also one lambda function acting as a separated service.
+[[dockerhub screenshot]]
+### Independent Releases and Deployments
+- Continuous Integration including tests described in `.travis.yml`.
+[[screenshot travis last successful build]]
+### Service Orchestration with Kubernetes
+- Application deployed as spearate components via kubernetes each in its own container.
+[[screenshots for kubectl]]
 
-- Credentials posted through volume
-- [[ screenshot from feed-deployment.yml annotated on volume ]]
-
-# Testing
+## Testing
 - Installed extra dev dependencies `@types/chai` & `@types/chai-http` in order to write tests in typescript.
 - Added the run test script in `package.json` 
 ```
