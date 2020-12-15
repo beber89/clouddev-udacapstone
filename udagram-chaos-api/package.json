@@ -1,0 +1,36 @@
+{
+  "name": "udagram-chaos-service",
+  "version": "2.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node .",
+    "tsc": "tsc",
+    "dev": "ts-node-dev --respawn --transpileOnly ./src/app.ts",
+    "prod": "tsc && node ./www/app.js",
+    "clean": "rm -rf www/ || true",
+    "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json",
+    "test": "mocha --timeout 6000 -r ts-node/register src/**/*.spec.ts"
+  },
+  "keywords": [],
+  "author": "Gabriel Ruttner",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^7.9.0",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^5.21.4",
+    "sequelize-typescript": "^0.6.9"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.26",
+    "@types/node": "^11.11.6",
+    "@types/sequelize": "^4.27.44",
+    "@types/validator": "^10.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typescript": "^3.3.4000"
+  }
+}

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  appName: 'iKnowYo',
+  appName: 'Chaosgram',
   apiHost: 'http://a9943c4f12fad4f389462d9db089270b-2127732586.us-east-2.elb.amazonaws.com:8080/api/v0'
 };
 

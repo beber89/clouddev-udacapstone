@@ -1,17 +1,22 @@
 # About Application
-- I know Yo , whwnever you upload a photo for Ne-Yo it recognizes him by presenting an alert to the user.
-- [[ Screenshot for the alert ]]
-- If not his photo a cool quote is alerted.
+- Chaosgram, allows users to share photos and allows developers to mess up users' captions.
+- [[ Screenshot for the captions ]]
+- It also presents a quote for the user whenever s/he uploads a new post.
 -  [[ screenshot for the quote ]]
 
 # Composition
 Course 3 app implmented using microservices arch and one part uses lambda functions
+- The project comprises four microservices
+- 
 
 # Added Feature
-## Lambda pulls out random quotes
-## It takes quote request from feed backend
+## Chaotic Caption Changes
+- Container `backend-chaos` changes a random post's caption each 30 seconds.
+## Random Quote Alert
+- A lambda function is implemented with the role to send a quote to user whenever a post is uploaded
+### It takes quote request from feed backend
 - show edits in `udagram-feed-api`
-## Edits in frontend
+### Edits in frontend
 - Backend sends the quote to frontend which presents it as an alert to user 
  - after the user successfully creates a post
 
